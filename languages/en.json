@@ -1,3 +1,20 @@
 {
-    "MODULE.hello": "hello"
+  "MEMENTO_MORI.Settings.HitPath.Name": "Path to changing value (A)",
+  "MEMENTO_MORI.Settings.HitPath.Hint": "The property path to the value which will change with each update, e.g. current HP or wounds.  This must be relative to actor.data, e.g. for the dnd5e system, where the HP value is stored at actor.data.data.attributes.hp.value, this setting should be data.attributes.hp.value",
+  "MEMENTO_MORI.Settings.comparison.Name": "Comparison Type",
+  "MEMENTO_MORI.Settings.comparison.Hint": "The type of comparison to perform, of the form A (comparison) B.  'Less than or equal to' is suitable for systems where HP counts down to 0, 'greater than or equal to' is suitable for systems where a number of wounds counts up to a maximum number of wounds.",
+  "MEMENTO_MORI.Settings.comparison.LT": "Less than or equal to (<=)",
+  "MEMENTO_MORI.Settings.comparison.GT": "Greater than or equal to (>=)",
+  "MEMENTO_MORI.Settings.CompareTo.Name": "Static value (B)",
+  "MEMENTO_MORI.Settings.CompareTo.Hint": "A number or property path for the value to compare to.  For systems where HP counts down, this should generally be 0.  For systems where wounds count up, this should be the maximum number of wounds, or a path to that property (relative to actor.data).",
+  "MEMENTO_MORI.Settings.UnlinkedStatusName.Name": "Status Name (unlinked token)",
+  "MEMENTO_MORI.Settings.UnlinkedStatusName.Hint": "The name for the status to be applied to an unlinked token. Leave blank if you don't want statuses to be created for unlinked tokens.",
+  "MEMENTO_MORI.Settings.UnlinkedStatusIcon.Name": "Status Icon (unlinked token)",
+  "MEMENTO_MORI.Settings.UnlinkedStatusIcon.Hint": "The icon to be used for the status on an unlinked token",
+  "MEMENTO_MORI.Settings.LinkedStatusName.Name": "Status Name (linked token)",
+  "MEMENTO_MORI.Settings.LinkedStatusName.Hint": "The name for the status to be applied to a linked token. Leave blank if you don't want statuses to be created for linked tokens.",
+  "MEMENTO_MORI.Settings.LinkedStatusIcon.Name": "Status Icon (unlinked token)",
+  "MEMENTO_MORI.Settings.LinkedStatusIcon.Hint": "The icon to be used for the status on an unlinked token",
+  "MEMENTO_MORI.Settings.Overlay.Name": "Overlay",
+  "MEMENTO_MORI.Settings.Overlay.Hint": "If true, the status will display as an overlay on the whole token. If false, it will display as a small icon in the corner of the token."
 }
