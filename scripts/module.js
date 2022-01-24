@@ -136,7 +136,7 @@ async function updateActor(actor, update){
         console.warn(`${MODULE_ID} | The setting ${game.i18n.localize("MEMENTO_MORI.Settings.HitPath.Name")} is not a valid property of actor.data or that property is undefined`)
         return
     }
-    let compareTo = isNaN(parseInt(getSetting("compareTo"))) ? actor.data.getProperty(getSetting("compareTo")) : parseInt(getSetting("compareTo"))
+    let compareTo = isNaN(parseInt(getSetting("compareTo"))) ? getProperty(actor.data, getSetting("compareTo")) : parseInt(getSetting("compareTo"))
     if (compareTo === undefined) {
         console.warn(`${MODULE_ID} | The setting ${game.i18n.localize("MEMENTO_MORI.Settings.compareTo.Name")} is not a number or a valid property of actor.data or that property is undefined`)
         return
