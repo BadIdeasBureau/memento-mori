@@ -133,7 +133,7 @@ async function updateActor(actor, update){
     if(!game.user === game.users.find(u => u.isGM && u.active)) return //first GM only
     let hp = getProperty(update, getSetting("hitPath"))
     if(hp === undefined) {
-        console.warn(`${MODULE_ID} | The setting ${game.i18n.localize("MEMENTO_MORI.Settings.HitPath.Name")} is not a valid property of actor.data or that property is undefined`)
+        if(getProperty(actor.data, getSetting("hitPath"))===undefined) console.warn(`${MODULE_ID} | The setting ${game.i18n.localize("MEMENTO_MORI.Settings.HitPath.Name")} is not a valid property of actor.data or that property is undefined`)
         return
     }
     let compareTo = isNaN(parseInt(getSetting("compareTo"))) ? getProperty(actor.data, getSetting("compareTo")) : parseInt(getSetting("compareTo"))
