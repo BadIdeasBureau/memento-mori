@@ -13,7 +13,7 @@
   "MEMENTO_MORI.Settings.UnlinkedStatusIcon.Hint": "The icon to be used for the status on an unlinked token",
   "MEMENTO_MORI.Settings.LinkedStatusName.Name": "Status Name (linked token)",
   "MEMENTO_MORI.Settings.LinkedStatusName.Hint": "The name for the status to be applied to a linked token. Leave blank if you don't want statuses to be created for linked tokens.",
-  "MEMENTO_MORI.Settings.LinkedStatusIcon.Name": "Status Icon (unlinked token)",
+  "MEMENTO_MORI.Settings.LinkedStatusIcon.Name": "Status Icon (linked token)",
   "MEMENTO_MORI.Settings.LinkedStatusIcon.Hint": "The icon to be used for the status on an unlinked token",
   "MEMENTO_MORI.Settings.Overlay.Name": "Overlay",
   "MEMENTO_MORI.Settings.Overlay.Hint": "If true, the status will display as an overlay on the whole token. If false, it will display as a small icon in the corner of the token."
