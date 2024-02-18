@@ -75,7 +75,7 @@ Hooks.once('init', async function() {
         scope: 'world',     // "world" = sync to db, "client" = local storage
         config: true,       // false if you dont want it to show in module config
         type: String,       // Number, Boolean, String,
-        default: "data.attributes.hp.value"
+        default: "system.attributes.hp.value"
     })
 
     game.settings.register(MODULE_ID, "comparison",{
@@ -103,7 +103,7 @@ Hooks.once('init', async function() {
 
 async function addEffect(actor){
     log("Adding Effect to " + actor.name)
-    if(actor.effects.find(e => e.data?.flags?.core?.statusId === MODULE_ID)) return //no new effect if one is already present
+    if(actor.effects.find(e => e?.flags?.core?.statusId === MODULE_ID)) return //no new effect if one is already present
     let linked = actor.isToken ? "unlinked" : "linked"
     let label = getSetting(`${linked}StatusName`);
     let icon = getSetting(`${linked}StatusIcon`);
@@ -122,7 +122,7 @@ async function addEffect(actor){
 
 async function removeEffects(actor){
     log("Removing Effect From" + actor.name)
-    let effects = actor.effects.filter(e => e.data?.flags?.core?.statusId === MODULE_ID)
+    let effects = actor.effects.filter(e => e?.flags?.core?.statusId === MODULE_ID)
     if (effects.length===0) return
     for (let effect of effects) {
         await effect.delete()
@@ -133,12 +133,12 @@ async function updateActor(actor, update){
     if(!game.user === game.users.find(u => u.isGM && u.active)) return //first GM only
     let hp = getProperty(update, getSetting("hitPath"))
     if(hp === undefined) {
-        if(getProperty(actor.data, getSetting("hitPath"))===undefined) console.warn(`${MODULE_ID} | The setting ${game.i18n.localize("MEMENTO_MORI.Settings.HitPath.Name")} is not a valid property of actor.data or that property is undefined`)
+        if(getProperty(actor, getSetting("hitPath"))===undefined) console.warn(`${MODULE_ID} | The setting ${game.i18n.localize("MEMENTO_MORI.Settings.HitPath.Name")} is not a valid property of actor or that property is undefined`)
         return
     }
-    let compareTo = isNaN(parseInt(getSetting("compareTo"))) ? getProperty(actor.data, getSetting("compareTo")) : parseInt(getSetting("compareTo"))
+    let compareTo = isNaN(parseInt(getSetting("compareTo"))) ? getProperty(actor, getSetting("compareTo")) : parseInt(getSetting("compareTo"))
     if (compareTo === undefined) {
-        console.warn(`${MODULE_ID} | The setting ${game.i18n.localize("MEMENTO_MORI.Settings.compareTo.Name")} is not a number or a valid property of actor.data or that property is undefined`)
+        console.warn(`${MODULE_ID} | The setting ${game.i18n.localize("MEMENTO_MORI.Settings.compareTo.Name")} is not a number or a valid property of actor or that property is undefined`)
         return
     }
     let comparison = getSetting("comparison")

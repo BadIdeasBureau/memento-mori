@@ -5,8 +5,8 @@
   "version": "This is auto replaced",
   "library": "false",
   "manifestPlusVersion": "1.0.0",
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9",
+  "minimumCoreVersion": "11",
+  "compatibleCoreVersion": "11",
   "authors": [
     {
       "name": "BadIdeasBureau",
